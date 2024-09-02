@@ -1,0 +1,32 @@
+# version: '3.8'
+
+# services:
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     command: gunicorn --bind 0.0.0.0:8000 app.wsgi:application
+#     volumes:
+#       - ./backend:/backend/app
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       # Djangoのデフォルト設定ファイルでSQLite3を使うため、データベースに関する環境変数の設定は不要です
+#       DJANGO_SETTINGS_MODULE: app.settings
+#     depends_on: []
+
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: gunicorn --bind 0.0.0.0:8000 app.wsgi:application
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: app.settings
+    depends_on: []
