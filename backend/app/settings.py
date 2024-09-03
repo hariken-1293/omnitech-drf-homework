@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from datetime import timedelta
 
@@ -29,17 +30,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    # "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # トークンの有効期限
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # リフレッシュトークンの有効期限
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),  # トークンの有効期限
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),  # リフレッシュトークンの有効期限
 }
 
 # Application definition
@@ -52,8 +52,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "todo",
-    'rest_framework',
-    'rest_framework_simplejwt',
+    "rest_framework",
+    "rest_framework_simplejwt",
+    'drf_yasg',
+    # "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -71,7 +73,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,5 +142,13 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
 ]
+
+# SPECTACULAR_SETTINGS = {
+#     "TITLE": "プロジェクト名",
+#     "DESCRIPTION": "詳細",
+#     "VERSION": "1.0.0",
+#     # api/schemaを表示しない
+#     "SERVE_INCLUDE_SCHEMA": False,
+# }
