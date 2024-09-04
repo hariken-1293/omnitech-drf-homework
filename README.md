@@ -20,7 +20,7 @@
 ## ■ 使用技術
 - Docker
 - Django(v4.0)
-- DjangoRestFramework(3.13)
+- DjangoRestFramework(v3.13)
 - View(ClassBasedView(Routersは利用しない))
 
 > [!WARNING]
