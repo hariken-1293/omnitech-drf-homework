@@ -14,11 +14,13 @@ class TodoItemListCreateView(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+
 class TodoItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+
 
 # @api_view(['GET'])
 # @permission_classes([IsAuthenticated])

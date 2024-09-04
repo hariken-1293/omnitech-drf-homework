@@ -14,14 +14,19 @@
 | ✅ | TODO削除機能(実装しなくても可) |
 | ✅ | TODO詳細取得機能(1件取得) |
 | ✅ | TODO一覧取得機能(複数件取得) |
-| ❌ | Swagger UIでAPIドキュメントを確認できること |
+| ✅ | Swagger UIでAPIドキュメントを確認できること |
 
 
 ## ■ 使用技術
 - Docker
-- Django
-- DjangoRestFramework
+- Django(v4.0)
+- DjangoRestFramework(v3.13)
 - View(ClassBasedView(Routersは利用しない))
+
+> [!WARNING]
+> Django・DRF・drf-spectacularの互換性に注意すること．
+> 
+> [DjangoとDRFの互換性リスト](https://www.django-rest-framework.org/community/release-notes/#313x-series)
 
 ## ■ Gitについて
 ### ■ コミットメッセージの分類
