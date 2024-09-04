@@ -23,9 +23,10 @@
 - DjangoRestFramework(3.13)
 - View(ClassBasedView(Routersは利用しない))
 
-[!WARNING]
-Django,DRF,drf-spectacularの互換性に注意すること．
-[DjangoとDRFの互換性リスト](https://www.django-rest-framework.org/community/release-notes/#313x-series)
+> [!WARNING]
+> Django・DRF・drf-spectacularの互換性に注意すること．
+> 
+> [DjangoとDRFの互換性リスト](https://www.django-rest-framework.org/community/release-notes/#313x-series)
 
 ## ■ Gitについて
 ### ■ コミットメッセージの分類
