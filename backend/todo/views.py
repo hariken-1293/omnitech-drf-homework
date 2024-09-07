@@ -11,7 +11,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class TodoItemListCreateView(generics.ListCreateAPIView):
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
-    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
 
