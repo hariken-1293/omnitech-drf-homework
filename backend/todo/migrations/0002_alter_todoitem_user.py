@@ -7,14 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
-        ('todo', '0001_initial'),
+        ("auth", "0012_alter_user_first_name_max_length"),
+        ("todo", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='todoitem',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='todo_items', to='auth.user'),
+            model_name="todoitem",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="todo_items",
+                to="auth.user",
+            ),
         ),
     ]

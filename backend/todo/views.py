@@ -21,7 +21,10 @@ class TodoItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
 
 
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def protected_view(request):
-#     return Response({"message": "This is a protected view!"})
+class UserTodoListView(generics.ListAPIView):
+    serializer_class = TodoItemSerializer
+    permission_classes = [IsAuthenticated]  # 認証済みユーザのみアクセス可能
+
+    def get_queryset(self):
+        # 認証されたユーザのTodoのみ取得
+        return TodoItem.objects.filter(user=self.request.user)
